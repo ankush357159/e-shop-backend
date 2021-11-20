@@ -6,6 +6,8 @@ const cookieParser = require("cookie-parser");
 const fileupload = require("express-fileupload");
 const dotenv = require("dotenv");
 const errorMiddleware = require("./middleware/error");
+const path = require("path");
+//The path module provides utilities for working with file and directory paths.
 
 app.use(express.json());
 app.use(cookieParser());

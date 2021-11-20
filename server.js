@@ -2,6 +2,7 @@
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cloudinary = require("cloudinary");
+const cors = require("cors");
 
 //Files import
 const app = require("./app");
@@ -29,6 +30,11 @@ process.on("unhandledRejection", (reason, promise) => {
 
 //Config
 dotenv.config({ path: "config/.env" });
+
+//cors
+if (process.env.NODE_ENV === "development") {
+  app.use(cors({ origin: `${process.env.CLIENT_URL}` }));
+}
 
 // Connecting to database
 mongoDatabase();
