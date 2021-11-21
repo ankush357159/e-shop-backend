@@ -79,9 +79,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   //By default, documents are automatically validated before they are saved to the database. This is to prevent saving an invalid document. If validation is required to be handled manually, and be able to save objects which don't pass validation, it can be set to validateBeforeSave to false.
 
   //Express.js req.protocol contains the request protocol string: either http or (for TLS requests) https.
-  const resetPasswordUrl = `${req.protocol}://${req.get(
-    "host"
-  )}/api/v1/password/reset/${resetToken}`;
+  const resetPasswordUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
 
   const message = `Your password reset token is :- \n\n ${resetPasswordUrl} \n\nIf you have not requested this email then, please ignore it.`;
 
