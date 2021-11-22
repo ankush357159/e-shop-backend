@@ -12,8 +12,10 @@ exports.createProductAdmin = async (req, res, next) => {
 
   if (typeof req.body.images === "string") {
     images.push(req.body.images);
+    //Push image if there is a single image
   } else {
     images = req.body.images;
+    //Image array is equal to array of images if multiple images received from frontend
   }
 
   const imagesLinks = [];
